@@ -164,7 +164,7 @@ $\stackrel{a}{bot}$|\stackrel{a}{bot}|
     1& x\neq 0
 \end{cases}$ ，可以有以下三种写法：
 
-```markdown
+```markdown 
 $f(x)=\begin{cases}
     0& x=0\\
     1& x\neq 0

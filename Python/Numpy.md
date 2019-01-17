@@ -3,27 +3,20 @@
 
 1. 矩阵的自我复制
    * np.repeat
-    ```python
+    ```python {cmd}
     import numpy as np
 
     a = np.array([[0, 1], [2, 3]])
     b = np.repeat(a,2,axis=0)
-    # out: [[0 1]
-    #       [0 1]
-    #       [2 3]
-    #       [2 3]]
+    print('b:\n',b)
     c = np.repeat(a,2,axis=1)
-    # out: [[0 0 1 1]
-    #       [2 2 3 3]]
+    print('c:\n',c)
     ```
    * np.tile
-    ```python
+    ```python {cmd}
     import numpy as np
 
     a = np.array([[0, 1], [2, 3]])
     b = np.tile(a,[2,1])
-    #out [[0 1]
-    #     [2 3]
-    #     [0 1]
-    #     [2 3]]
+    print('b:\n',b)
     ```
