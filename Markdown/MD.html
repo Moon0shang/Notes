@@ -1,0 +1,474 @@
+<!DOCTYPE html><html><head>
+      <title>MD</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\Users\X\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <div><p><span id="top"></span></p>
+<ul>
+<li><a href="#%E6%A0%87%E9%A2%98">&#x6807;&#x9898;</a></li>
+<li><a href="#%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F">&#x6587;&#x5B57;&#x6837;&#x5F0F;</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5%E5%85%AC%E5%BC%8F">&#x8F93;&#x5165;&#x516C;&#x5F0F;</a></li>
+<li><a href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5">&#x63D2;&#x5165;&#x56FE;&#x7247;/&#x94FE;&#x63A5;</a></li>
+<li><a href="#%E6%B3%A8%E8%84%9A%E7%BC%A9%E5%86%99">&#x6CE8;&#x811A;&amp;&#x7F29;&#x5199;</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8">&#x5217;&#x8868;</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">&#x4EE3;&#x7801;</a></li>
+<li><a href="#%E8%A1%A8%E6%A0%BC">&#x8868;&#x683C;</a></li>
+</ul>
+<h1 class="mume-header" id="%E6%A0%87%E9%A2%98">&#x6807;&#x9898;</h1>
+
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> &#x6807;&#x9898;</span>
+<span class="token title important"><span class="token punctuation">##</span> &#x4E8C;&#x7EA7;&#x6807;&#x9898;</span>
+<span class="token title important"><span class="token punctuation">###</span> &#x4E09;&#x7EA7;&#x6807;&#x9898;</span>
+<span class="token title important"><span class="token punctuation">####</span> &#x56DB;&#x7EA7;&#x6807;&#x9898;</span>
+<span class="token title important"><span class="token punctuation">#####</span> &#x4E94;&#x7EA7;&#x6807;&#x9898;</span>
+<span class="token title important"><span class="token punctuation">######</span> &#x516D;&#x7EA7;&#x6807;&#x9898;</span>
+</pre><h1 class="mume-header" id="%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F">&#x6587;&#x5B57;&#x6837;&#x5F0F;</h1>
+
+<ul>
+<li>
+<p>&#x6CE8;&#x91CA;</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown"><span class="token comment">&lt;!---
+&#x6CE8;&#x91CA;
+&#x6CE8;&#x91CA;
+---&gt;</span>
+</pre></li>
+<li>
+<p>&#x9996;&#x884C;&#x7F29;&#x8FDB;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown"><span class="token list punctuation">1.</span> &#x534A;&#x65B9;&#x5927;&#x7684;&#x7A7A;&#x767D;:<span class="token entity" title="&#x2002;">&amp;ensp;</span>&#x6216;<span class="token entity" title="&#x2002;">&amp;#8194;</span>
+<span class="token list punctuation">2.</span> &#x5168;&#x65B9;&#x5927;&#x7684;&#x7A7A;&#x767D;:<span class="token entity" title="&#x2003;">&amp;emsp;</span>&#x6216;<span class="token entity" title="&#x2003;">&amp;#8195;</span>
+<span class="token list punctuation">3.</span> &#x4E0D;&#x65AD;&#x884C;&#x7684;&#x7A7A;&#x767D;&#x683C;:<span class="token entity" title="&#xA0;">&amp;nbsp;</span>&#x6216;<span class="token entity" title="&#xA0;">&amp;#160;</span>
+</pre><p>&#x9996;&#x884C;&#x7F29;&#x8FDB;1&#x2002;&#x9996;&#x884C;&#x7F29;&#x8FDB;2&#x2002;&#x9996;&#x884C;&#x7F29;&#x8FDB;3&#x2003;&#x9996;&#x884C;&#x7F29;&#x8FDB;4&#x2003;&#x9996;&#x884C;&#x7F29;&#x8FDB;5&#xA0;&#x9996;&#x884C;&#x7F29;&#x8FDB;6&#xA0;&#x9996;&#x884C;&#x7F29;&#x8FDB;</p>
+<p>&#x2003;&#x2003;&#x9996;&#x884C;&#x7F29;&#x8FDB;</p>
+</li>
+<li>
+<p>&#x6587;&#x672C;&#x5C45;&#x4E2D;</p>
+  <center>&#x5C45;&#x4E2D;</center>
+<blockquote>
+<p>&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5C45;&#x4E2D;&#x7684;&#x6587;&#x672C;&#x5982;&#x679C;&#x5305;&#x542B;&#x5176;&#x4ED6;markdown</p>
+</blockquote>
+</li>
+<li>
+<p>&#x7279;&#x6B8A;&#x6587;&#x672C;</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown"><span class="token italic"><span class="token punctuation">*</span>&#x659C;&#x4F53;<span class="token punctuation">*</span></span>
+<span class="token bold"><span class="token punctuation">**</span>&#x7C97;&#x4F53;<span class="token punctuation">**</span></span>
+==&#x9AD8;&#x4EAE;==
+~~&#x5220;&#x9664;&#x7EBF;~~
+H<span class="token italic"><span class="token punctuation">_</span>2<span class="token punctuation">_</span></span>O &#x4E0B;&#x6807;
+2^10^ &#x4E0A;&#x6807;
+<span class="token blockquote punctuation">&gt;</span> &#x5F15;&#x7528;
+</pre></li>
+<li>
+<p>&#x5B57;&#x4F53;&#x6837;&#x5F0F;</p>
+<blockquote>
+<p>&lt;font &#x66F4;&#x6539;&#x8BED;&#x6CD5;&gt;   &#x4F60;&#x7684;&#x5185;&#x5BB9;   <br>
+color=#0099ff   &#x66F4;&#x6539;&#x5B57;&#x4F53;&#x989C;&#x8272;<br>
+face=&quot;&#x9ED1;&#x4F53;&quot;   &#x66F4;&#x6539;&#x5B57;&#x4F53;<br>
+size= 7     &#x66F4;&#x6539;&#x5B57;&#x4F53;&#x5927;&#x5C0F;</p>
+</blockquote>
+<p><font face="&#x9ED1;&#x4F53;">&#x6211;&#x662F;&#x9ED1;&#x4F53;&#x5B57;</font><br>
+<font face="&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;">&#x6211;&#x662F;&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;</font><br>
+<font face="STCAIYUN">&#x6211;&#x662F;&#x534E;&#x6587;&#x5F69;&#x4E91;</font><br>
+<font color="#0099ff" size="7" face="&#x9ED1;&#x4F53;">color=#0099ff size=72 face=&quot;&#x9ED1;&#x4F53;&quot;</font><br>
+<font color="#00ffff" size="72">color=#00ffff</font><br>
+<font color="gray" size="72">color=gray</font><br>
+<font color="red" size="9"> SCP </font></p>
+</li>
+</ul>
+<h1 class="mume-header" id="%E8%BE%93%E5%85%A5%E5%85%AC%E5%BC%8F">&#x8F93;&#x5165;&#x516C;&#x5F0F;</h1>
+
+<p>&#x5728;markdown&#x4E2D;&#x8F93;&#x5165;&#x516C;&#x5F0F;&#x91C7;&#x7528;Latex&#x7F16;&#x8BD1;&#xFF0C;&#x56E0;&#x6B64;&#x8BED;&#x6CD5;&#x4E0E;Latex&#x57FA;&#x672C;&#x4E00;&#x81F4;&#x3002;&#x56F4;&#x7ED5;&#x516C;&#x5F0F;&#x63D2;<code>$</code>&#xFF0C;&#x5355;&#x4E2A;&#x8868;&#x793A;&#x884C;&#x5185;&#x516C;&#x5F0F;&#xFF0C;&#x4E24;&#x4E2A;&#x8868;&#x793A;&#x884C;&#x95F4;&#x516C;&#x5F0F;&#xFF0C;&#x4EE5;&#x8FDB;&#x5165;&#x516C;&#x5F0F;&#x7F16;&#x8F91;&#x73AF;&#x5883;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown">$\alpha$
+$$\alpha$$
+</pre><blockquote>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span><br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span></span></p>
+</blockquote>
+<h1 class="mume-header" id="%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5">&#x63D2;&#x5165;&#x56FE;&#x7247;/&#x94FE;&#x63A5;</h1>
+
+<p>&#x5728;markdown&#x4E2D;&#x63D2;&#x5165;&#x7684;&#x56FE;&#x7247;/&#x94FE;&#x63A5;&#x53EF;&#x4EE5;&#x662F;&#x7F51;&#x7EDC;&#x5185;&#x5BB9;&#x4E0A;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x672C;&#x6587;&#x4E2D;&#x5185;&#x5BB9;&#x7684;&#x94FE;&#x63A5;</p>
+<ul>
+<li>
+<p>A <a href="https://www.baidu.com">link(baidu)</a> &#x6587;&#x5B57;&#x94FE;&#x63A5;</p>
+</li>
+<li>
+<p>&#x9875;&#x5185;&#x94FE;&#x63A5;&#x8DF3;&#x8F6C;<a href="#%E6%A0%87%E9%A2%98">&#x6807;&#x9898;</a></p>
+<blockquote>
+<ol>
+<li>[]&#x4E2D;&#x62EC;&#x53F7;&#x586B;&#x5199;&#x9700;&#x8981;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x663E;&#x793A;&#x7684;&#x5185;&#x5BB9;&#xFF1B;</li>
+<li>()&#x5C0F;&#x62EC;&#x53F7;&#x5185;&#x90E8;&#x58F0;&#x660E;&#x8DF3;&#x8F6C;&#x76EE;&#x6807;&#x6807;&#x9898;&#xFF0C;&#x4EE5;#&#x5F00;&#x5934;&#xFF0C;&#x6807;&#x9898;&#x9898;&#x53F7;&#x5982;&#x679C;&#x5305;&#x542B;<code>.</code>&#x3001;&#x4E0B;&#x5212;&#x7EBF;&#x76F4;&#x63A5;&#x5FFD;&#x7565;&#x6389;&#xFF0C;&#x6807;&#x9898;&#x6587;&#x672C;&#x4E2D;&#x5982;&#x679C;&#x6709;&#x7A7A;&#x683C;&#xFF0C;&#x4F7F;&#x7528;<code>-</code>&#x6A2A;&#x6760;&#x7B26;&#x53F7;&#x66FF;&#x4EE3;&#xFF0C;&#x6807;&#x9898;&#x6587;&#x672C;&#x4E2D;&#x7684;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x8F6C;&#x6362;&#x6210;&#x5C0F;&#x5199;&#x3002;</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>&#x8F6C;&#x81F3;&#x9875;&#x9762;<a href="#top">&#x9876;&#x90E8;</a></p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown">&#x5728;&#x6587;&#x6863;&#x9876;&#x90E8;&#x8BBE;&#x7F6E;&#x951A;&#x70B9;&#xFF1A;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>jump<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+</pre></li>
+<li>
+<p>&#x63D2;&#x5165;&#x56FE;&#x7247;(&#x6709;&#x4E9B;&#x8BED;&#x6CD5;&#x4E0D;&#x9002;&#x7528;&#x6240;&#x7528;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x6B64;&#x5904;&#x53EA;&#x6709;&#x9002;&#x7528;&#x4E8E;VS Code &#x7684;&#x8BED;&#x6CD5;)<br>
+<img src="../loss_increasing.png" alt="a"></p>
+</li>
+<li>
+<p>&#x63D2;&#x5165;&#x56FE;&#x7247;&#x5E76;&#x8BBE;&#x7F6E;&#x56FE;&#x7247;&#x5927;&#x5C0F;<br>
+<img src="../loss_increasing.png" width="400" height="260" alt="ll"></p>
+</li>
+<li>
+<p>&#x63D2;&#x5165;&#x56FE;&#x7247;&#x5E76;&#x5C45;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#xFF0C;&#x6DFB;&#x52A0;&#x6807;&#x9898;</p>
+  <div align="center">
+  <img src="../loss_increasing.png" alt="ll">
+<p>&#x6807;&#x9898;</p>
+  </div>
+</li>
+</ul>
+<h1 class="mume-header" id="%E6%B3%A8%E8%84%9A%E7%BC%A9%E5%86%99">&#x6CE8;&#x811A;&amp;&#x7F29;&#x5199;</h1>
+
+<ul>
+<li>Some text with a footnote.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li>
+<li>Markdown converts text to <abbr title="HyperText Markup Language">HTML</abbr>.</li>
+</ul>
+<h1 class="mume-header" id="%E5%88%97%E8%A1%A8">&#x5217;&#x8868;</h1>
+
+<ol>
+<li>&#x65E0;&#x5E8F;&#x5217;&#x8868;
+<ul>
+<li>item
+<ul>
+<li>item
+<ul>
+<li>item</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x6709;&#x5E8F;&#x5217;&#x8868;
+<ol>
+<li>item</li>
+<li>item</li>
+<li>item</li>
+</ol>
+</li>
+<li>&#x5F85;&#x529E;&#x5217;&#x8868;
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> incomplete item</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> complete item</li>
+</ul>
+</li>
+</ol>
+<h1 class="mume-header" id="%E4%BB%A3%E7%A0%81">&#x4EE3;&#x7801;</h1>
+
+<ul>
+<li>
+<p>&#x5355;&#x884C;&#x4EE3;&#x7801;/&#x884C;&#x5185;&#x4EE3;&#x7801;some <code>inline code</code></p>
+</li>
+<li>
+<p>&#x4EE3;&#x7801;&#x5757;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment"># a code block with highlight</span>
+a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">&apos;10&apos;</span><span class="token punctuation">)</span>
+</pre></li>
+<li>
+<p>&#x5982;&#x679C;&#x884C;&#x9996;&#x7F29;&#x8FDB;&#x8D85;&#x8FC7;&#x5F53;&#x524D;&#x7B49;&#x7EA7;4&#x4E2A;&#x7A7A;&#x683C;&#xFF0C;&#x5C31;&#x4F1A;&#x88AB;&#x8BC6;&#x522B;&#x4E3A;&#x4EE3;&#x7801;&#x6BB5;</p>
+<pre class="language-text">  like this
+</pre>
+</li>
+</ul>
+<p>some</p>
+<pre class="language-text">something like this
+</pre>
+<h1 class="mume-header" id="%E8%A1%A8%E6%A0%BC">&#x8868;&#x683C;</h1>
+
+<ul>
+<li>&#x65B9;&#x6CD5;&#x4E00;<pre data-role="codeBlock" data-info="markdown" class="language-markdown">| item      | value |
+| --------- | ----- |
+| item1     | v1    |
+| item22222 | v2    |
+</pre></li>
+<li>&#x65B9;&#x6CD5;&#x4E8C;
+<table>
+<thead>
+<tr>
+<th>column1</th>
+<th>column2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111</td>
+<td>2222</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>&#x5BF9;&#x9F50;&#xFF0C;&#x5C45;&#x4E2D;<code>:-:</code>&#xFF0C;&#x5411;&#x5DE6;&#x5BF9;&#x9F50;<code>:--</code>&#xFF0C;&#x5411;&#x53F3;&#x5BF9;&#x9F50;<code>--:</code>
+<table>
+<thead>
+<tr>
+<th>&#x4E0D;&#x5BF9;&#x9F50;</th>
+<th style="text-align:center">&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;</th>
+<th style="text-align:left">&#x5411;&#x5DE6;&#x5BF9;&#x9F50;</th>
+<th style="text-align:right">&#x5411;&#x53F3;&#x5BF9;&#x9F50;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abc</td>
+<td style="text-align:center">abc</td>
+<td style="text-align:left">abc</td>
+<td style="text-align:right">abc</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>the footnote. <a href="#fnref1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+</ol>
+</section>
+</div>
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E6%A0%87%E9%A2%98">&#x6807;&#x9898;</a></li>
+<li><a href="#%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F">&#x6587;&#x5B57;&#x6837;&#x5F0F;</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5%E5%85%AC%E5%BC%8F">&#x8F93;&#x5165;&#x516C;&#x5F0F;</a></li>
+<li><a href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5">&#x63D2;&#x5165;&#x56FE;&#x7247;/&#x94FE;&#x63A5;</a></li>
+<li><a href="#%E6%B3%A8%E8%84%9A%E7%BC%A9%E5%86%99">&#x6CE8;&#x811A;&amp;&#x7F29;&#x5199;</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8">&#x5217;&#x8868;</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">&#x4EE3;&#x7801;</a></li>
+<li><a href="#%E8%A1%A8%E6%A0%BC">&#x8868;&#x683C;</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
