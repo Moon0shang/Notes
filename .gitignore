@@ -3,6 +3,15 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# latex编译文件
+*.aux
+*.log
+*.out
+*.ptc 
+*.synctex.gz
+*.gz
+*.toc
+
 # VS Code files 
 .vscode/
 
