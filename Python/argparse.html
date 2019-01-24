@@ -1,0 +1,282 @@
+<!DOCTYPE html><html><head>
+      <title>argparse</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\Users\X\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+abap+actionscript+ada+apacheconf+apl+applescript+asciidoc+aspnet+autoit+autohotkey+bash+basic+batch+c+brainfuck+bro+bison+csharp+cpp+coffeescript+ruby+css-extras+d+dart+django+diff+docker+eiffel+elixir+erlang+fsharp+fortran+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+http+icon+inform7+ini+j+jade+java+jolie+json+julia+keyman+kotlin+latex+less+livescript+lolcode+lua+makefile+markdown+matlab+mel+mizar+monkey+nasm+nginx+nim+nix+nsis+objectivec+ocaml+oz+parigp+parser+pascal+perl+php+php-extras+powershell+processing+prolog+properties+protobuf+puppet+pure+python+q+qore+r+jsx+reason+rest+rip+roboconf+crystal+rust+sas+sass+scss+scala+scheme+smalltalk+smarty+sql+stylus+swift+tcl+textile+twig+typescript+vbnet+verilog+vhdl+vim+wiki+xojo+yaml */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="argparse">Argparse</h1>
+
+<ul>
+<li>
+<p>&#x4F5C;&#x7528;&#xFF1A;&#x7528;&#x4E8E;&#x89E3;&#x6790;&#x547D;&#x4EE4;&#x884C;</p>
+</li>
+<li>
+<p>&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment"># args.py</span>
+<span class="token keyword">import</span> argparse
+
+<span class="token keyword">def</span> <span class="token function">cmd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    args <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span>
+        description<span class="token operator">=</span><span class="token string">&apos;Personal Information &apos;</span><span class="token punctuation">,</span> epilog<span class="token operator">=</span><span class="token string">&apos;Information end &apos;</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x5FC5;&#x5199;&#x5C5E;&#x6027;,&#x7B2C;&#x4E00;&#x4F4D;</span>
+    args<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">&quot;Your name&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x5FC5;&#x5199;&#x5C5E;&#x6027;,&#x7B2C;&#x4E8C;&#x4F4D;</span>
+    args<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&quot;birth&quot;</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">&quot;birthday&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x53EF;&#x9009;&#x5C5E;&#x6027;,&#x9ED8;&#x8BA4;&#x4E3A;None</span>
+    args<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&quot;-r&quot;</span><span class="token punctuation">,</span> <span class="token string">&apos;--race&apos;</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">&quot;race&quot;</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span>u<span class="token string">&quot;&#x6C11;&#x65CF;&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x53EF;&#x9009;&#x5C5E;&#x6027;,&#x9ED8;&#x8BA4;&#x4E3A;0,&#x8303;&#x56F4;&#x5FC5;&#x987B;&#x5728;0~150</span>
+    args<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&quot;-a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--age&quot;</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">&quot;age&quot;</span><span class="token punctuation">,</span>
+                    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">&quot;Your age&quot;</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> choices<span class="token operator">=</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x53EF;&#x9009;&#x5C5E;&#x6027;,&#x9ED8;&#x8BA4;&#x4E3A;male</span>
+    args<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&apos;-g&apos;</span><span class="token punctuation">,</span> <span class="token string">&quot;--gender&quot;</span><span class="token punctuation">,</span>   <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">&quot;gender&quot;</span><span class="token punctuation">,</span>
+                    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">&apos;Your gender&apos;</span><span class="token punctuation">,</span>         default<span class="token operator">=</span><span class="token string">&apos;male&apos;</span><span class="token punctuation">,</span> choices<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;male&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;female&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x53EF;&#x9009;&#x5C5E;&#x6027;,&#x9ED8;&#x8BA4;&#x4E3A;None,-p&#x540E;&#x53EF;&#x63A5;&#x591A;&#x4E2A;&#x53C2;&#x6570;</span>
+    args<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&quot;-p&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--parent&quot;</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">&apos;parent&apos;</span><span class="token punctuation">,</span>
+                    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">&quot;Your parent&quot;</span><span class="token punctuation">,</span>      default<span class="token operator">=</span><span class="token string">&quot;None&quot;</span><span class="token punctuation">,</span> nargs<span class="token operator">=</span><span class="token string">&apos;*&apos;</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x53EF;&#x9009;&#x5C5E;&#x6027;,&#x9ED8;&#x8BA4;&#x4E3A;None,-o&#x540E;&#x53EF;&#x63A5;&#x591A;&#x4E2A;&#x53C2;&#x6570;</span>
+    args<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&quot;-o&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--other&quot;</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">&apos;other&apos;</span><span class="token punctuation">,</span>
+                    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">&quot;other Information&quot;</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> nargs<span class="token operator">=</span><span class="token string">&apos;*&apos;</span><span class="token punctuation">)</span>
+
+    args <span class="token operator">=</span> args<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x547D;&#x540D;&#x7A7A;&#x95F4;,&#x5982;&#x679C;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x53D8;&#x91CF;,&#x53EF;&#x7528;args.attr</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;argparse.args=&quot;</span><span class="token punctuation">,</span> args<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;name = %s&apos;</span> <span class="token operator">%</span> args<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> args<span class="token punctuation">.</span>__dict__
+    <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;%s = %s&apos;</span> <span class="token operator">%</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&quot;__main__&quot;</span><span class="token punctuation">:</span>
+    cmd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre></li>
+<li>
+<p>&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="cmd" class="language-cmd"><code>python args.py -h   
+python args.py xiaoming 1991.11.11
+python args.py xiaoming 1991.11.11 -p xiaohong xiaohei -a 25 -r han -g female -o 1 2 3 4 5 6
+</code></pre></li>
+<li>
+<p><code>add_argment</code>&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li>dest&#xFF1A;&#x5982;&#x679C;&#x63D0;&#x4F9B;dest&#xFF0C;&#x4F8B;&#x5982;<code>dest=&#x201D;a&#x201D;</code>&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>args.a</code>&#x8BBF;&#x95EE;&#x8BE5;&#x53C2;&#x6570;</li>
+<li>nargs&#xFF1A;&#x53C2;&#x6570;&#x7684;&#x6570;&#x91CF;&#xFF0C;*(&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;0&#x4E2A;)&#xFF0C;+(&#x4E00;&#x4E2A;&#x6216;&#x66F4;&#x591A;)&#xFF0C;&#x503C;&#x4E3A;?&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x4ECE;&#x547D;&#x4EE4;&#x884C;&#x83B7;&#x5F97;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6709;-y&#x540E;&#x9762;&#x6CA1;&#x52A0;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4ECE;const&#x4E2D;&#x53D6;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;-y&#xFF0C;&#x5219;&#x4ECE;default&#x4E2D;&#x53D6;&#x3002;<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&apos;x&apos;</span><span class="token punctuation">,</span> nargs<span class="token operator">=</span><span class="token string">&apos;?&apos;</span><span class="token punctuation">,</span>default<span class="token operator">=</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">&apos;-y&apos;</span><span class="token punctuation">,</span> nargs<span class="token operator">=</span><span class="token string">&apos;?&apos;</span><span class="token punctuation">,</span>const<span class="token operator">=</span><span class="token string">&apos;const&apos;</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token string">&apos;1 -y 2&apos;</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+Namespace<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">&apos;2&apos;</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token string">&apos;1 -y&apos;</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+Namespace<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">&apos;1&apos;</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">&apos;const&apos;</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+Namespace<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">)</span>
+</pre></li>
+<li>default&#xFF1A;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</li>
+<li>const&#xFF1A;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;</li>
+<li>type&#xFF1A;&#x628A;&#x4ECE;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;&#x7684;&#x7ED3;&#x679C;&#x8F6C;&#x6210;&#x8BBE;&#x7F6E;&#x7684;&#x7C7B;&#x578B;</li>
+<li>choice&#xFF1A;&#x5141;&#x8BB8;&#x7684;&#x53C2;&#x6570;&#x503C;<pre data-role="codeBlock" data-info="python" class="language-python">parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span>&#x201C;<span class="token operator">-</span>v&#x201D;<span class="token punctuation">,</span> &#x201C;&#x2013;verbosity&#x201D;<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span>
+choices<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span>&#x201D;increase output verbosity&#x201D;<span class="token punctuation">)</span>
+</pre></li>
+<li>help&#xFF1A;&#x53C2;&#x6570;&#x547D;&#x4EE4;&#x7684;&#x4ECB;&#x7ECD;</li>
+<li>action&#xFF1A;&#x53C2;&#x6570;&#x89E6;&#x53D1;&#x7684;&#x52A8;&#x4F5C;</li>
+<li>store&#xFF1A;&#x4FDD;&#x5B58;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;</li>
+<li>store_const&#xFF1A;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#x53C2;&#x6570;&#x89C4;&#x683C;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x503C;&#xFF08;&#x5E38;&#x91CF;&#xFF09;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6765;&#x81EA;&#x53C2;&#x6570;&#x89E3;&#x6790;&#x800C;&#x6765;&#x7684;&#x503C;&#x3002;</li>
+<li>store_ture/store_false&#xFF1A;&#x4FDD;&#x5B58;&#x76F8;&#x5E94;&#x7684;&#x5E03;&#x5C14;&#x503C;</li>
+<li>append&#xFF1A;&#x5C06;&#x503C;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x4E2D;&#x3002;</li>
+<li>append_const&#xFF1A;&#x5C06;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x5728;&#x53C2;&#x6570;&#x89C4;&#x683C;&#x4E2D;&#x7684;&#x503C;&#xFF08;&#x5E38;&#x91CF;&#xFF09;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x4E2D;&#x3002;</li>
+<li>count&#xFF1A;&#x53C2;&#x6570;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;<pre data-role="codeBlock" data-info="python" class="language-python">parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span>&#x201C;<span class="token operator">-</span>v&#x201D;<span class="token punctuation">,</span> &#x201C;&#x2013;verbosity&#x201D;<span class="token punctuation">,</span> action<span class="token operator">=</span>&#x201D;count&#x201D;<span class="token punctuation">,</span>
+default<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span>&#x201D;increase output verbosity&#x201D;<span class="token punctuation">)</span>
+</pre></li>
+<li>version&#xFF1A;&#x6253;&#x5370;&#x7A0B;&#x5E8F;&#x7248;&#x672C;&#x4FE1;&#x606F;</li>
+</ul>
+</li>
+<li>
+<p>&#x6CE8;&#x610F;&#xFF1A;</p>
+<blockquote>
+<p>&#x53C2;&#x6570;&#x7684;&#x8BBF;&#x95EE;&#x5F62;&#x5F0F;&#x4E3A;<code>args.name</code>&#xFF0C;&#x5982;&#x679C;<code>dest</code>&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x4F18;&#x5148;&#x901A;&#x8FC7;<code>dest</code>&#x8BBE;&#x7F6E;&#x6765;&#x8BBF;&#x95EE;&#x53C2;&#x6570;&#xFF0C;&#x518D;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x7684;&#x6765;&#x8BBF;&#x95EE;&#x53C2;&#x6570;&#xFF1B;&#x5BF9;&#x4E8E;<code>-n</code>&#xFF0C;<code>--name</code>&#x5982;&#x679C;&#x540C;&#x65F6;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x53EA;&#x80FD;&#x4F7F;&#x7528;<code>--name</code>&#x6765;&#x8BBF;&#x95EE;&#x53C2;&#x6570;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#argparse">Argparse</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
