@@ -1,7 +1,4 @@
-
-
 # Argparse
-
 
 - 作用：用于解析命令行
 
@@ -40,13 +37,12 @@
         for key, value in d.items():
             print('%s = %s' % (key, value))
 
-
     if __name__ == "__main__":
         cmd()
     ```
 - 使用：
     ```cmd
-    python args.py -h   
+    python args.py -h
     python args.py xiaoming 1991.11.11
     python args.py xiaoming 1991.11.11 -p xiaohong xiaohei -a 25 -r han -g female -o 1 2 3 4 5 6
     ```

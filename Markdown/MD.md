@@ -61,7 +61,7 @@
     >color=#0099ff   更改字体颜色
     >face="黑体"   更改字体
     >size= 7     更改字体大小
-    
+
     <font face="黑体">我是黑体字</font>
     <font face="微软雅黑">我是微软雅黑</font>
     <font face="STCAIYUN">我是华文彩云</font>
