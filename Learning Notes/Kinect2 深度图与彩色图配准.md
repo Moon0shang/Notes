@@ -1,5 +1,5 @@
 
-参考[CSDN](https://blog.csdn.net/aichipmunk/article/details/9264703)
+参考[CSDN-aipiano](https://blog.csdn.net/aichipmunk/article/details/9264703)
 
 # 摄像头的标定
 
@@ -18,8 +18,8 @@
         \end{matrix}
     \right]$
 
-    **外参矩阵**：旋转矩阵 $rotate\ matrix: R_{img} = Rc_ext$；
-            转换矩阵 $rotate\ matrix: T_{img}=Tc_ext$
+    **外参矩阵**：旋转矩阵 $rotate\ matrix: R_{img} = Rc\_ext$；
+            转换矩阵 $rotate\ matrix: T_{img}=Tc\_ext$
 
 # 配准
 
