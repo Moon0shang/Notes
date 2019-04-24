@@ -33,8 +33,8 @@
 需要注意的是，p_ir和p_rgb使用的都是齐次坐标，因此在构造p_ir时，应将原始的像素坐标（x，y）乘以深度值，而最终的RGB像素坐标必须将p_rgb除以z分量，即（x/z，y/z），且z分量的值即为该点到RGB摄像头的距离（单位为毫米）。
 2. 外参矩阵实际上也是由一个旋转矩阵R_ir（R_rgb）和平移向量T_ir（T_rgb）构成的，它表示将一个全局坐标系下的点P变换到摄像头坐标系下，分别对深度摄像头和RGB摄像头进行变换，有以下关系：
 $$\begin{array}{l}
-    P_{rgb} = RP_{rgb}+T_{rgb}\\
-    P_{ir} = RP_{ir}+T_{ir}
+    P_{rgb} = R_{rgb}P+T_{rgb}\\
+    P_{ir} = R_{ir}P+T_{ir}
 \end{array}$$
 在第一式中，将P用P_ir、R_ir和T_ir表示，并带入第二式，可得：
     $$P_{rgb}=R_{rgb}R^{-1}_{ir}+T_{ragb}-R_{rgb}R^{-1}_{ir}T_{ir}$$
