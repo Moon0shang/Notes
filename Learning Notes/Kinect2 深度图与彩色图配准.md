@@ -32,17 +32,17 @@
    $$p_{rgb}=H_{rgb}P_{rgb}$$
 需要注意的是，p_ir和p_rgb使用的都是齐次坐标，因此在构造p_ir时，应将原始的像素坐标（x，y）乘以深度值，而最终的RGB像素坐标必须将p_rgb除以z分量，即（x/z，y/z），且z分量的值即为该点到RGB摄像头的距离（单位为毫米）。
 2. 外参矩阵实际上也是由一个旋转矩阵R_ir（R_rgb）和平移向量T_ir（T_rgb）构成的，它表示将一个全局坐标系下的点P变换到摄像头坐标系下，分别对深度摄像头和RGB摄像头进行变换，有以下关系：
-$$\begin{array}{l}
-    P_{rgb} = R_{rgb}P+T_{rgb}\\
-    P_{ir} = R_{ir}P+T_{ir}
-\end{array}$$
+$$\begin{aligned}
+    P_{rgb} &= R_{rgb}P+T_{rgb}\\
+    P_{ir} &= R_{ir}P+T_{ir}
+\end{aligned}$$
 在第一式中，将P用P_ir、R_ir和T_ir表示，并带入第二式，可得：
     $$P_{rgb}=R_{rgb}R^{-1}_{ir}+T_{ragb}-R_{rgb}R^{-1}_{ir}T_{ir}$$
 从上式可以看出，这是在将P_ir变换为P_rgb，对比之前的式子：
     $$P_{rgb} = RP_{ir}+T$$
 可得：
-    $$\begin{array}{l}
-        R = R_{rgb}R^{-1}_{ir}\\
-        T = T_{rgb}-R_{rgb}R^{-1}_{ir}T_{ir}
-    \end{array}$$
+    $$\begin{aligned}
+        R &= R_{rgb}R^{-1}_{ir}\\
+        T &= T_{rgb}-R_{rgb}R^{-1}_{ir}T_{ir}
+    \end{aligned}$$
 因此，我们只需在同一场景下，得到棋盘相对于深度摄像头和RGB摄像头的外参矩阵，即可算出联系两摄像头坐标系的变换矩阵（注意，所有旋转矩阵都是正交阵，因此可用转置运算代替求逆运算）。虽然不同场景下得到的外参矩阵都不同，计算得到的$R$和$T$也有一些变化，但根据实际实验结果来看，使用一个正面棋盘的标定图像就可达到较好的效果
