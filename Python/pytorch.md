@@ -46,3 +46,22 @@
     (tensor([5, 4, 3]), tensor([4, 3, 2]))
     (tensor([1, 2, 3]), tensor([0, 1, 2]))
     ```
+- `torch.*_like(tensor,dtype)`接收输入Tensor, 并返回一个与输入Tensor属性（形状，数据类型-不指定的话）相同的Tensor
+    ```python
+    x = torch.randn(3,dtype=torch.float64)
+    print(torch.zeros_like(x))
+    # tensor([0.,0.,0.],dtype=torch.float64)
+    print(torch.zeros_like(x,dtype=torch.int32))
+    # tensor([0,0,0],dtype=torch.int32)
+    ```
+- `tensor.new_*(size,dtype)`可以创建与Tensor数据类型相同的Tensor，输出Tensor的形状是必需的
+    ```python
+    x = torch.randn(3,dtype=torch.float64)
+    print(x.new_ones(2))
+    # tensor([1.,1.],dtype=torch.float64)
+    print(x.new_ones(4,dtype=torch.int32))
+    # tensor([1,1,1,1],dtype=torch.int32)
+    ```
+    <div align="center">
+    <img src='./stuffs/new_like.png' alt='new_like'>
+    </div>

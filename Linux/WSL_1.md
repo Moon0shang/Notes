@@ -41,7 +41,7 @@
         Linux端：
 
             ```bash
-            sudo apt install xfc4
+            sudo apt install xfce4
             sudo apt install xrdp
             # 配置xrdp
             sudo sed -i ‘s/port=3389/port=3390/g’ /etc/xrdp/xrdp.ini
@@ -63,11 +63,13 @@
         1. linux 端
 
             ```bash
-            sudo apt install sfc4
+            # sudo apt install xorg
+            sudo apt install xfce4
             # 设置显示界面
             export DISPLAY=:0.0
             export LIBGL_ALWAYS_INDIRECT=1
             ```
+            或者添加到`~/.bashrc`（推荐）
 
         2. Windows端：
             1. 安装[VcXsrv](https://sourceforge.net/projects/vcxsrv/)
