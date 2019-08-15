@@ -457,9 +457,9 @@ def train(args):
     二分类用的交叉熵，用的时候需要在该层前面加上 Sigmoid 函数。
    4. **CrossEntropy**
     $$\begin{aligned}
-\text{loss}(\mathbf{x}, \text{label}) &= - \boldsymbol{w}_{\text{label}}\log \frac{e^{\mathbf{x}_{\text{label}}}}{\sum_{j=1}^N e^{\mathbf{x}_j}} \\
-&= \boldsymbol{w}_{\text{label}} \left[ -\mathbf{x}_{\text{label}} + \log \sum_{j=1}^N e^{\mathbf{x}_j} \right]
-\end{aligned}$$
+    \text{loss}(\mathbf{x}, \text{label}) &= - \boldsymbol{w}_{\text{label}}\log \frac{e^{\mathbf{x}_{\text{label}}}}{\sum_{j=1}^N e^{\mathbf{x}_j}} \\
+    &= \boldsymbol{w}_{\text{label}} \left[ -\mathbf{x}_{\text{label}} + \log \sum_{j=1}^N e^{\mathbf{x}_j} \right]
+    \end{aligned}$$
     多分类用的交叉熵损失函数，用这个 loss 前面不需要加 Softmax 层,这里限制了 target 类型为 torch.LongTensr，而且不是多标签意味着标签是 one-hot 编码的形式，即只有一个位置是 1，其他位置都是 0.
    5. **NLL**
     $$\text{loss}(\mathbf{x}, \text{label}) = - \mathbf{x}_{\text{label}}$$
@@ -467,11 +467,11 @@ def train(args):
 2. **SSIM**
    结构相似性指数（structural similarity index，SSIM）, 出自参考文献[1]，用于度量两幅图像间的结构相似性。和被广泛采用的L2 loss不同，SSIM和人类的视觉系统（HVS）类似，对局部结构变化的感知敏感。
    SSIM分为三个部分：照明度、对比度、结构，分别如下公式所示：
-   $$\begin{aligned}
+   $$\begin{align*}
        l(x,y)&=\frac{2\mu_x\mu_y+c_1}{\mu_x^2+\mu_y^2+c_1}\\
        c(x,y)&=\frac{2\sigma_x\sigma_y+c_2}{\sigma_x^2+\sigma_x^2+c_2}\\
        s(x,y)&=\frac{\sigma_{xy}+c_3}{\sigma_x+\sigma_y+c_3}
-   \end{aligned}$$
+   \end{align*}$$
    将三个式子汇总到一起就是SSIM：
    $$SSIM(x,y)=\frac{(2\mu_x\mu_y+c_1)(2\sigma_{xy}+c_2)}{(\mu_x^2+\mu_y^2+c_1)(\sigma_x^2+\sigma_y^2+c_2)}$$
    其中，上式各符号分别为图像x和y的均值、方差和它们的协方差，显而易见，不赘述。$c_{1}=(k_{1}L)^{2}$，$c_{2}=(k_{2}L)^{2}$为常数。一般默认$k_{1}=0.01$，$k_{2}=0.03$. L为像素值的动态范围，如8-bit深度的图像的L值为2^8-1=255.
