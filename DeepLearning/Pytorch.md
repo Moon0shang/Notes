@@ -1,3 +1,4 @@
+<span id="top"></span>
 - [File Struct](#file-struct)
 - [DataSet construct](#dataset-construct)
 - [Net construct](#net-construct)
@@ -96,7 +97,7 @@ class ToTensor():
     
 ```
 
-[Back to top](#file-struct)
+[Back to top](#top)
 
 # Net construct
 
@@ -232,9 +233,10 @@ if __name__ == "__main__":
     print("use ModuleList.\n", net3)
 
 ```
-[Back to top](#file-struct)
+[Back to top](#top)
 
-1. nn.Sequential和nn.ModuleList的区别
+1. nn.Sequential和nn.ModuleList的区别:
+
     nn.Sequential类似于Keras中的贯序模型，它是Module的子类，在构建数个网络层之后会自动调用forward()方法，从而有网络模型生成。而nn.ModuleList仅仅类似于pytho中的list类型，只是将一系列层装入列表，并没有实现forward()方法，因此也不会有网络模型产生的副作用。
 
 2. nn.ModuleList接受的必须是subModule类型，二次嵌套的list内部也必须额外使用一个nn.ModuleList修饰实例化，否则会无法识别类型而报错！
@@ -275,18 +277,18 @@ if __name__ == "__main__":
         self.load_state_dict(state_dict)
    ```
 
-[Back to top](#file-struct)
+[Back to top](#top)
 
 # train and test
 
 ## train
 
-[Back to top](#file-struct)
+[Back to top](#top)
 
 ## test
 
 
-[Back to top](#file-struct)
+[Back to top](#top)
 
 # Utils
 
@@ -296,4 +298,4 @@ Additional part, recommend subject: logging
 
 [logging](../Python/logging.md)
 
-[Back to top](#file-struct)
+[Back to top](#top)
