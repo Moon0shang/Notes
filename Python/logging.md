@@ -1,4 +1,14 @@
 
+- [全局配置(basicConfig)](#%e5%85%a8%e5%b1%80%e9%85%8d%e7%bd%aebasicconfig)
+- [灵活配置](#%e7%81%b5%e6%b4%bb%e9%85%8d%e7%bd%ae)
+  - [Level](#level)
+  - [Handle](#handle)
+  - [Formatter](#formatter)
+  - [捕获Traceback](#%e6%8d%95%e8%8e%b7traceback)
+  - [共享配置](#%e5%85%b1%e4%ba%ab%e9%85%8d%e7%bd%ae)
+  - [文件配置](#%e6%96%87%e4%bb%b6%e9%85%8d%e7%bd%ae)
+- [定义自己的logger类](#%e5%ae%9a%e4%b9%89%e8%87%aa%e5%b7%b1%e7%9a%84logger%e7%b1%bb)
+
 # 全局配置(basicConfig)
 
 - 用法示例：
@@ -368,3 +378,134 @@ def run():
 2019-01-25 11:00:52,062 - main.core - DEBUG - Core Debug
 2019-01-25 11:00:52,063 - main.core - ERROR - Core Error
 ```
+
+# 定义自己的logger类
+
+自定义logging类并且设置属性
+
+定义 logging类： logger.py
+```python
+import os
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+# 日志级别
+CRITICAL = 50
+FATAL = CRITICAL
+ERROR = 40
+WARNING = 30
+WARN = WARNING
+INFO = 20
+DEBUG = 10
+NOTSET = 0
+
+CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
+ROOT_PATH = os.path.join(CURRENT_PATH, os.pardir)
+LOG_PATH = os.path.join(ROOT_PATH, 'log')
+
+# 设置输出级别
+filter_dict = {'TASK': 'logToConsole'}
+
+
+class ContextFilter(logging.Filter):
+    """
+    a filter to control message output in console
+    """
+
+    def filter(self, record):
+        try:
+            filter_key = record.TASK
+        except AttributeError:
+            return False
+
+        if filter_key == "logToConsole":
+            return True
+        else:
+            return False
+
+class LogHandler(logging.Logger):
+    """
+    LogHandler
+    """
+
+    def __init__(self, name,file_name="log.log", level=DEBUG, stream=True, file=True):
+        self.name = name
+        self.level = level
+        self.file_name = file_name
+        logging.Logger.__init__(self, self.name, level=level)
+        if stream:
+            self.__setStreamHandler__()
+        if file:
+            self.__setFileHandler__()
+
+    def __setFileHandler__(self, level=None):
+        """
+        set file handler
+        :param level:
+        :return:
+        """
+        # # 设置日志回滚, 保存在log目录, 一天保存一个文件, 保留15天
+        # file_handler = TimedRotatingFileHandler(filename=file_name, when='D', interval=1, backupCount=15)
+        # file_handler.suffix = '%Y%m%d.log'
+        file_handler = FileHandler(filename=self.file_name)
+        if not level:
+            file_handler.setLevel(self.level)
+        else:
+            file_handler.setLevel(level)
+        formatter = logging.Formatter(
+            '%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s')
+
+        file_handler.setFormatter(formatter)
+        self.file_handler = file_handler
+        self.addHandler(file_handler)
+
+    def __setStreamHandler__(self, level=None):
+        """
+        set stream handler
+        :param level:
+        :return:
+        """
+        stream_handler = logging.StreamHandler()
+        formatter = logging.Formatter(
+            '%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s')
+        stream_handler.setFormatter(formatter)
+        # 设置过滤器
+        console_filter = ContextFilter()
+        stream_handler.addFilter(console_filter)
+        if not level:
+            stream_handler.setLevel(self.level)
+        else:
+            stream_handler.setLevel(level)
+        self.addHandler(stream_handler)
+
+    def resetName(self, name):
+        """
+        reset name
+        :param name:
+        :return:
+        """
+        self.name = name
+        self.removeHandler(self.file_handler)
+        self.__setFileHandler__()
+
+
+if __name__ == '__main__':
+    log = LogHandler('test')
+    log.info('this is a test msg')
+
+```
+
+
+调用文件: main.py
+
+```python
+import logger，filter_dict
+
+
+log = logger("name")
+
+log.info("print and save a message.")
+log.info("only save the message, no console output.",extra=filter_dict)
+
+```
+
